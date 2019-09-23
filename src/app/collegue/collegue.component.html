@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <div class="col  ">
+            <img [src]="collegue.photoUrl" alt="photo du collegue" class="w-100">
+        </div>
+
+
+        <div class="col">
+            <div class="row">
+                <p>Matricule: </p>
+            </div>
+            <div class="row">
+                <p>Nom: </p>
+            </div>
+            <div class="row">
+                <p>Prenom: </p>
+            </div>
+            <div class="row">
+                <p>Date de Naissance: </p>
+            </div>
+            <div class="row">
+                <p>Email: </p>
+            </div>
+
+        </div>
+
+        <div class="col">
+            <div class="row">
+                <p [textContent]="collegue.matricule"></p>
+            </div>
+            <div class="row">
+                <p [textContent]="collegue.nom"></p>
+            </div>
+            <div class="row">
+                <p [textContent]="collegue.prenom"></p>
+            </div>
+            <div class="row">
+                <p [textContent]="collegue.dateDeNaissance"></p>
+            </div>
+            <div class="row">
+                <p [textContent]="collegue.email"></p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+            <a href="#" (click)="clickCreer()">Créer un nouveau collègue</a>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-primary" (click)="clickModifier()">Modifier</button>
+        </div>
+    </div>
+</div>
