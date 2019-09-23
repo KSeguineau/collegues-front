@@ -1,6 +1,10 @@
 # ColleguesFront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.5.
+## App
+
+[![Build Status](https://travis-ci.org/KSeguineau/collegues-front.svg?branch=master)](https://travis-ci.org/KSeguineau/collegues-front)  
+https://kseguineau.github.io/collegues-front/
 
 ## Development server
 
