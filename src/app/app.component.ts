@@ -9,7 +9,6 @@ import {collegueMock} from "./mock/collegues.mock";
   styles: []
 })
 export class AppComponent {
-  colleguemock =collegueMock;
 
 
 }
