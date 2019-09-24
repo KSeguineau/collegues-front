@@ -1,0 +1,15 @@
+<div class="col">
+    <div class="row">
+        <div class="col">Recherche par nom</div>
+        <div class="col">
+            <input type="text" class="form-text" #nom>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-primary" (click)="rechercherParNom(nom.value)">Rechercher</button>
+        </div>
+    </div>
+    <div *ngIf="listeMatricule">
+        <ng-container *ngFor="let matricule of listeMatricule"><p>{{matricule}}</p></ng-container>
+
+    </div>
+</div>

@@ -9,15 +9,20 @@ import Collegue from "../models/Collegue";
 export class CollegueComponent implements OnInit {
 
   @Input() collegue: Collegue;
+  modification: boolean = false;
 
   constructor() { }
 
   clickModifier(){
-    console.log("Modification du collègue");
+    this.modification = true;
   }
 
   clickCreer(){
     console.log("Creation du collègue");
+  }
+
+  clickValider(){
+    this.modification = false
   }
 
   ngOnInit() {

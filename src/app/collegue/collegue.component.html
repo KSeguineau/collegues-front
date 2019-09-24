@@ -1,56 +1,84 @@
 <div class="container">
     <div class="row">
         <div class="col  ">
-            <img [src]="collegue.photoUrl" alt="photo du collegue" class="w-100">
-        </div>
-
-
-        <div class="col">
-            <div class="row">
-                <p>Matricule: </p>
-            </div>
-            <div class="row">
-                <p>Nom: </p>
-            </div>
-            <div class="row">
-                <p>Prenom: </p>
-            </div>
-            <div class="row">
-                <p>Date de Naissance: </p>
-            </div>
-            <div class="row">
-                <p>Email: </p>
-            </div>
-
+            <img [src]="collegue.photoUrl" alt="photo du collegue" class="w-75">
         </div>
 
         <div class="col">
             <div class="row">
-                <p [textContent]="collegue.matricule"></p>
-            </div>
-            <div class="row">
-                <p [textContent]="collegue.nom"></p>
-            </div>
-            <div class="row">
-                <p [textContent]="collegue.prenom"></p>
-            </div>
-            <div class="row">
-                <p [textContent]="collegue.dateDeNaissance"></p>
-            </div>
-            <div class="row">
-                <p [textContent]="collegue.email"></p>
+
+                <div class="col">
+                    <div class="row">
+                        <p>Matricule: </p>
+                    </div>
+                    <div class="row">
+                        <p>Nom: </p>
+                    </div>
+                    <div class="row">
+                        <p>Prenom: </p>
+                    </div>
+                    <div class="row">
+                        <p>Date de Naissance: </p>
+                    </div>
+                    <div class="row">
+                        <p>Email: </p>
+                    </div>
+                    <ng-container *ngIf="modification">
+                        <div class="row">
+                            <p>Photo: </p>
+                        </div>
+                    </ng-container>
+
+                </div>
+
+                <div class="col">
+                    <div class="row">
+                        <p [textContent]="collegue.matricule"></p>
+                    </div>
+                    <div class="row">
+                        <p [textContent]="collegue.nom | uppercase"></p>
+                    </div>
+                    <div class="row">
+                        <p [textContent]="collegue.prenom"></p>
+                    </div>
+                    <div class="row">
+                        <p [textContent]="collegue.dateDeNaissance | date:'longDate'"></p>
+                    </div>
+                    <ng-container *ngIf="modification; else afficherEmailEtPhoto ">
+                        <div class="row">
+                            <input type="text" class="form-text" >
+                        </div>
+                        <div class="row">
+                            <input type="text" class="form-text" >
+                        </div>
+                    </ng-container>
+                    <ng-template #afficherEmailEtPhoto>
+                        <div class="row">
+                            <p [textContent]="collegue.email"></p>
+                        </div>
+                    </ng-template>
+                </div>
             </div>
 
+            <div class="row">
+                <ng-container *ngIf="modification==false;else afficherBoutonValider">
+                    <div class="col">
+                        <a href="#" (click)="clickCreer()">Créer un nouveau collègue</a>
+                    </div>
+
+                    <div class="col">
+                        <button type="button" class="btn btn-primary" (click)="clickModifier()">Modifier</button>
+                    </div>
+                </ng-container>
+                <ng-template #afficherBoutonValider>
+                    <div class="col"></div>
+                    <div class="col">
+                        <button type="button" class="btn btn-primary" (click)="clickValider()">Valider</button>
+                    </div>
+                </ng-template>
+            </div>
         </div>
-    </div>
 
 
-    <div class="row">
-        <div class="col">
-            <a href="#" (click)="clickCreer()">Créer un nouveau collègue</a>
-        </div>
-        <div class="col">
-            <button type="button" class="btn btn-primary" (click)="clickModifier()">Modifier</button>
-        </div>
     </div>
 </div>
