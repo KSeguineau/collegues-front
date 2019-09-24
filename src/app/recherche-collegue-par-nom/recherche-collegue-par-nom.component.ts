@@ -10,11 +10,11 @@ import {DataService} from "../services/data.service";
 export class RechercheCollegueParNomComponent implements OnInit {
 
   listeMatricule: string[];
-  constructor() { }
+  constructor(private _dataService:DataService) { }
 
   rechercherParNom(nom: string){
     console.log(nom);
-    this.listeMatricule = new DataService().chercherMatricules();
+    this.listeMatricule = this._dataService.chercherMatricules();
   }
   ngOnInit() {
   }
