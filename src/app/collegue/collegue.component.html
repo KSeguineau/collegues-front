@@ -9,52 +9,39 @@
 
                 <div class="col">
                     <div class="row">
-                        <p>Matricule: </p>
+                        <div class="col"><p>Matricule: </p></div>
+                        <div class="col"><p [textContent]="collegue.matricule"></p></div>
                     </div>
                     <div class="row">
-                        <p>Nom: </p>
+                        <div class="col"><p>Nom: </p></div>
+                        <div class="col"> <p [textContent]="collegue.nom | uppercase"></p></div>
                     </div>
                     <div class="row">
-                        <p>Prenom: </p>
-                    </div>
-                    <div class="row">
-                        <p>Date de Naissance: </p>
-                    </div>
-                    <div class="row">
-                        <p>Email: </p>
-                    </div>
-                    <ng-container *ngIf="modification">
-                        <div class="row">
-                            <p>Photo: </p>
-                        </div>
-                    </ng-container>
+                        <div class="col"><p>Prenom: </p></div>
+                        <div class="col"><p [textContent]="collegue.prenom"></p></div>
 
-                </div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><p>Date de Naissance: </p></div>
+                        <div class="col"> <p [textContent]="collegue.dateDeNaissance | date:'longDate'"></p></div>
 
-                <div class="col">
-                    <div class="row">
-                        <p [textContent]="collegue.matricule"></p>
-                    </div>
-                    <div class="row">
-                        <p [textContent]="collegue.nom | uppercase"></p>
-                    </div>
-                    <div class="row">
-                        <p [textContent]="collegue.prenom"></p>
-                    </div>
-                    <div class="row">
-                        <p [textContent]="collegue.dateDeNaissance | date:'longDate'"></p>
                     </div>
                     <ng-container *ngIf="modification; else afficherEmailEtPhoto ">
                         <div class="row">
-                            <input type="text" class="form-control mr-2 mb-2"   placeholder="Entrez un email">
+                            <div class="col"><p>Email: </p></div>
+                            <div class="col"><input type="text" class="form-control mr-2 mb-2"   placeholder="Entrez un email"></div>
+
                         </div>
                         <div class="row">
-                            <input type="text" class="form-control mr-2 mb-2"   placeholder="Entrez une url de photo">
+                            <div class="col"><p>Photo: </p></div>
+                            <div class="col"><input type="text" class="form-control mr-2 mb-2"   placeholder="Entrez une url de photo"></div>
+
                         </div>
                     </ng-container>
                     <ng-template #afficherEmailEtPhoto>
                         <div class="row">
-                            <p [textContent]="collegue.email"></p>
+                            <div class="col"><p>Email: </p></div>
+                            <div class="col"><p [textContent]="collegue.email"></p></div>
                         </div>
                     </ng-template>
                 </div>
