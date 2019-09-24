@@ -1,5 +1,5 @@
-<div class="col">
-    <div class="row">
+<div class="col ">
+    <div class="row py-2">
         <div class="col">Recherche par nom</div>
         <div class="col">
             <input type="text" class="form-text" #nom>
@@ -8,8 +8,16 @@
             <button type="button" class="btn btn-primary" (click)="rechercherParNom(nom.value)">Rechercher</button>
         </div>
     </div>
-    <div *ngIf="listeMatricule">
-        <ng-container *ngFor="let matricule of listeMatricule"><p>{{matricule}}</p></ng-container>
-
+    <div *ngIf="listeMatricule" >
+        <table class="table table-bordered table-hover text-center">
+            <thead class="thead-dark ">
+            <tr>
+                <th scope="col">Matricule</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let matricule of listeMatricule">{{matricule}}</tr>
+            </tbody>
+        </table>
     </div>
 </div>
