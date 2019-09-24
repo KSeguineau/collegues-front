@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
-        <div class="col  ">
-            <img [src]="collegue.photoUrl" alt="photo du collegue" class="w-75">
+        <div class="col text-center ">
+            <img [src]="collegue.photoUrl" alt="photo du collegue" class="w-50">
         </div>
 
         <div class="col">
@@ -46,10 +46,10 @@
                     </div>
                     <ng-container *ngIf="modification; else afficherEmailEtPhoto ">
                         <div class="row">
-                            <input type="text" class="form-control"   placeholder="Entrez un email">
+                            <input type="text" class="form-control mr-2 mb-2"   placeholder="Entrez un email">
                         </div>
                         <div class="row">
-                            <input type="text" class="form-control"   placeholder="Entrez une url de photo">
+                            <input type="text" class="form-control mr-2 mb-2"   placeholder="Entrez une url de photo">
                         </div>
                     </ng-container>
                     <ng-template #afficherEmailEtPhoto>
