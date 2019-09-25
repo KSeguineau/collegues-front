@@ -13,6 +13,7 @@ export class ConnexionComponent implements OnInit {
 
   connexion(login: string,mdp: string){
     this._dataService.connexion(login,mdp).subscribe(()=>{},(error => this.messageError = "informations de connexion invalides"));
+    return false;
   }
   ngOnInit() {
   }
