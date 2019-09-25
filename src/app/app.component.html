@@ -13,7 +13,12 @@
         <h1 class="text-success">Administration Collegue</h1>
     </div>
 </div>
-<div class="row ">
+<div *ngIf="(this.connecte | async)===false" class="row">
+    <div class="col text-center">
+        <app-connexion></app-connexion>
+    </div>
+</div>
+<div *ngIf="(this.connecte | async)===true" class="row ">
     <div class="col col-md-5">
         <app-recherche-collegue-par-nom></app-recherche-collegue-par-nom>
     </div>

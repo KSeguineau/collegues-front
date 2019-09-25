@@ -1,0 +1,11 @@
+<div class="row pb-2 ">
+
+        <div class="col px-1"><input type="text" class="form-text" placeholder="login" #login></div>
+        <div class="col px-1"><input type="text" class="form-text" placeholder="mdp" #mdp></div>
+        <div class="col">
+            <button type="button" class="btn btn-primary " (click)="connexion(login.value,mdp.value)">connexion
+            </button>
+        </div>
+        <p *ngIf="messageError" class="text-danger">{{messageError}}</p>
+
+</div>

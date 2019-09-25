@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {collegueMock} from "./mock/collegues.mock";
+import {DataService} from "./services/data.service";
+
 
 
 
@@ -9,6 +10,8 @@ import {collegueMock} from "./mock/collegues.mock";
   styles: []
 })
 export class AppComponent {
+  connecte = this._dataService.subjectConnecte;
+  constructor(private _dataService:DataService){}
 
 
 }
