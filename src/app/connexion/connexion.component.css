@@ -6,3 +6,13 @@ form{
     border-radius: 10px;
 
 }
+
+button{
+    background-color: #494b50;
+
+}
+
+button:hover{
+    background-color: grey;
+}
+
