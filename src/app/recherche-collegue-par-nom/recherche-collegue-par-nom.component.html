@@ -1,11 +1,10 @@
-<div class="col ">
+<div  class="col mx-3 p-3 globalDiv ">
     <div class="row py-2">
-        <div class="col">Recherche par nom</div>
         <div class="col">
-            <input type="text" class="form-text" #nom>
+            <input type="text"  class="form-control" placeholder="nom du collegue"  autofocus="" #nom>
         </div>
         <div class="col">
-            <button type="button" class="btn btn-primary" (click)="rechercherParNom(nom.value)">Rechercher</button>
+            <button type="button" class="btn btn-lg btn-block text-light" (click)="rechercherParNom(nom.value)">Rechercher</button>
         </div>
     </div>
     <div *ngIf="listeMatricule" >

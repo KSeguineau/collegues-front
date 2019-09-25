@@ -1,11 +1,11 @@
-<div class="row pb-2 ">
 
-        <div class="col px-1"><input type="text" class="form-text" placeholder="login" #login></div>
-        <div class="col px-1"><input type="text" class="form-text" placeholder="mdp" #mdp></div>
-        <div class="col">
-            <button type="button" class="btn btn-primary " (click)="connexion(login.value,mdp.value)">connexion
-            </button>
-        </div>
-        <p *ngIf="messageError" class="text-danger">{{messageError}}</p>
+<form class="form-signin">
+    <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
+    <label for="inputIdentifiant" class="sr-only" >Identifiant</label>
+    <input type="text" id="inputIdentifiant" class="form-control" placeholder="identifiant" required="" autofocus="" #login>
+    <label for="inputPassword" class="sr-only">Mot de passe</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required="" #mdp>
+    <button class="btn btn-lg btn-primary btn-block" (click)="connexion(login.value,mdp.value)">se connecter</button>
 
-</div>
+</form>
+

@@ -7,7 +7,7 @@ import {DataService} from "./services/data.service";
 @Component({
   selector: 'app-root',
   templateUrl: "./app.component.html",
-  styles: []
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   connecte = this._dataService.subjectConnecte;

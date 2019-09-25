@@ -1,23 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body class="container">
-<div class="row ">
-    <div class="col text-center pb-5">
-        <h1 class="text-success">Administration Collegue</h1>
+<div class="jumbotron" >
+    <div class="container">
+        <h1 class="display-2 ">Administration Collègues</h1>
+        <div *ngIf="(this.connecte | async)===false" class="row text-center">
+            <div class="col">
+                <app-connexion></app-connexion>
+            </div>
+        </div>
     </div>
 </div>
-<div *ngIf="(this.connecte | async)===false" class="row">
-    <div class="col text-center">
-        <app-connexion></app-connexion>
-    </div>
-</div>
+
+
+
+
 <div *ngIf="(this.connecte | async)===true" class="row ">
     <div class="col col-md-5">
         <app-recherche-collegue-par-nom></app-recherche-collegue-par-nom>
@@ -26,8 +20,7 @@
         <app-collegue></app-collegue>
     </div>
 </div>
-</body>
-</html>
+
 
 
 
