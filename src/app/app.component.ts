@@ -11,6 +11,7 @@ import {DataService} from "./services/data.service";
 })
 export class AppComponent {
   connecte = this._dataService.subjectConnecte;
+  collegue = this._dataService.subjectCollegue;
   constructor(private _dataService:DataService){}
 
 

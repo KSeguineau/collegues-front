@@ -10,7 +10,7 @@ import {DataService} from "../services/data.service";
 export class CollegueComponent implements OnInit {
 
 
-  collegue: Collegue = this._dataService.chercherCollegue();
+  collegue = this._dataService.subjectCollegue;
   modification: boolean = false;
 
   constructor(private _dataService:DataService) { }

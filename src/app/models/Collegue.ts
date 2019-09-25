@@ -3,7 +3,7 @@ export default class Collegue{
     nom: string;
     prenom: string;
     email: string;
-    dateDeNaissance: string;
+    ddn: string;
     photoUrl: string;
 
 
@@ -12,7 +12,7 @@ export default class Collegue{
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
-        this.dateDeNaissance = dateDeNaissance;
+        this.ddn = dateDeNaissance;
         this.photoUrl = photoUrl;
     }
 }

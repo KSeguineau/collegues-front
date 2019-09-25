@@ -16,8 +16,9 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let matricule of listeMatricule">{{matricule}}</tr>
+            <tr *ngFor="let matricule of listeMatricule" (click)="rechercherCollegue(matricule)" style="cursor:pointer">{{matricule}}</tr>
             </tbody>
         </table>
+        <p *ngIf="messageError" class="text-danger">{{messageError}}</p>
     </div>
 </div>

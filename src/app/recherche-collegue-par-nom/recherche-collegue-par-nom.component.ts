@@ -8,15 +8,17 @@ import {DataService} from "../services/data.service";
   styleUrls: ['./recherche-collegue-par-nom.component.css']
 })
 export class RechercheCollegueParNomComponent implements OnInit {
-
+  messageError:string;
   listeMatricule: string[];
   constructor(private _dataService:DataService) { }
 
   rechercherParNom(nom: string){
-    console.log(nom);
-    this.listeMatricule = this._dataService.chercherMatricules();
+    this._dataService.chercherMatricules(nom).subscribe((value => this.listeMatricule = value));
+  }
+
+  rechercherCollegue(matricule: string){
+    this._dataService.chercherCollegue(matricule).subscribe(()=>{},(error) => this.messageError = "Impossible de recuperer le collegue");
   }
   ngOnInit() {
   }
-
 }
