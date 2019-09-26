@@ -1,7 +1,5 @@
 import {Injectable} from '@angular/core';
 import Collegue from "../models/Collegue";
-import {listeMatricule} from "../mock/matricules.mock";
-import {collegueMock} from "../mock/collegues.mock";
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {HttpHeaders} from "@angular/common/http";
@@ -62,6 +60,27 @@ export class DataService {
             this._subjectConnecte.next(true);
             this._subjectCollegue.next(collegue);
       });
+    }
+
+    modifierCollegue(collegue:Collegue):Observable<Collegue>{
+        const httpOptions = {
+            headers: new HttpHeaders({
+                "Content-Type": "application/json"
+            }),
+            withCredentials: true
+        };
+        return this._httpClient.patch<Collegue>(environment.backendUrl+"/collegues/"+collegue.matricule,collegue,httpOptions).pipe(tap((collegue)=>this._subjectCollegue.next(collegue)));
+
+    }
+
+    creerCollegue(collegue:Collegue):Observable<Collegue>{
+        const httpOptions = {
+            headers: new HttpHeaders({
+                "Content-Type": "application/json"
+            }),
+            withCredentials: true
+        };
+        return this._httpClient.post<Collegue>(environment.backendUrl+"/collegues",collegue,httpOptions).pipe(tap((collegue)=>this._subjectCollegue.next(collegue)));
     }
 
 }

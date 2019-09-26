@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
 })
 export class AfficherCollegueComponent implements OnInit {
 
-  @Input() collegue: Observable<Collegue>;
+  @Input() collegue: Collegue;
   @Output() childEvent = new EventEmitter();
 
   constructor() { }

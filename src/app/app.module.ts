@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbDateAdapter, NgbDateNativeAdapter, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { CollegueComponent } from './collegue/collegue.component';
@@ -10,6 +10,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { AfficherCollegueComponent } from './collegue/afficher-collegue/afficher-collegue.component';
 import { ModifierCollegueComponent } from './collegue/modifier-collegue/modifier-collegue.component';
 import { CreerCollegueComponent } from './collegue/creer-collegue/creer-collegue.component';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,9 @@ import { CreerCollegueComponent } from './collegue/creer-collegue/creer-collegue
     CreerCollegueComponent
   ],
   imports: [
-    BrowserModule,NgbModule,HttpClientModule
+    BrowserModule,NgbModule,HttpClientModule,FormsModule
   ],
-  providers: [],
+  providers: [{provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

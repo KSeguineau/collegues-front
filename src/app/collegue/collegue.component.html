@@ -1,9 +1,9 @@
 
 <ng-container *ngIf="this.etatComponent===1">
-<app-afficher-collegue [collegue]="this.collegue" (childEvent)="this.changerEtatComponent($event)"></app-afficher-collegue>
+<app-afficher-collegue [collegue]="this.collegue |async" (childEvent)="this.changerEtatComponent($event)"></app-afficher-collegue>
 </ng-container>
 <ng-container *ngIf="this.etatComponent===2">
-    <app-modifier-collegue [collegue]="this.collegue" (childEvent)="this.changerEtatComponent($event)"></app-modifier-collegue>
+    <app-modifier-collegue [collegue]="this.collegue|async" (childEvent)="this.changerEtatComponent($event)"></app-modifier-collegue>
 </ng-container>
 <ng-container *ngIf="this.etatComponent===3">
     <app-creer-collegue (childEvent)="this.changerEtatComponent($event)"></app-creer-collegue>

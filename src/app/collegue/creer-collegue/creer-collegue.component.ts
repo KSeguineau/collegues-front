@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Observable} from "rxjs";
 import Collegue from "../../models/Collegue";
+import {DataService} from "../../services/data.service";
 
 @Component({
   selector: 'app-creer-collegue',
@@ -9,15 +10,20 @@ import Collegue from "../../models/Collegue";
 })
 export class CreerCollegueComponent implements OnInit {
 
-  collegue:Collegue;
+  messageError:string;
+
+  collegue:Collegue =new Collegue(null,null,null,null,null,null);
   @Output() childEvent = new EventEmitter();
 
-  constructor() { }
+  constructor(private _dataService:DataService) { }
 
   ngOnInit() {
   }
 
+
+
   clickCreer(){
-    this.childEvent.next(1);
+  this._dataService.creerCollegue(this.collegue).subscribe(()=>{this.childEvent.next(1);},(error =>{this.messageError="impossible de creer le collègue";console.log(error);} ))
+
   }
 }

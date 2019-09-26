@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {listeMatricule} from "../mock/matricules.mock";
 import {DataService} from "../services/data.service";
 
 @Component({
