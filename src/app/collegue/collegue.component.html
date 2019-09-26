@@ -1,67 +1,10 @@
 
-<div class="media row globalDiv  mx-3 p-3">
-    <img [src]="(this.collegue|async).photoUrl" alt="photo du collegue" class="align-self-center mr-3 ">
-    <div class="media-body">
-        <div class="row">
-
-            <div class="col">
-                <div class="row">
-                    <div class="col"><p>Matricule: </p></div>
-                    <div class="col"><p [textContent]="(this.collegue|async).matricule"></p></div>
-                </div>
-                <div class="row">
-                    <div class="col"><p>Nom: </p></div>
-                    <div class="col"> <p [textContent]="(this.collegue|async).nom | uppercase"></p></div>
-                </div>
-                <div class="row">
-                    <div class="col"><p>Prenom: </p></div>
-                    <div class="col"><p [textContent]="(this.collegue|async).prenom"></p></div>
-
-                </div>
-                <div class="row">
-                    <div class="col"><p>Date de Naissance: </p></div>
-                    <div class="col"> <p [textContent]="(this.collegue|async).ddn | date:'longDate'"></p></div>
-
-                </div>
-                <ng-container *ngIf="modification; else afficherEmailEtPhoto ">
-                    <div class="row">
-                        <div class="col"><p>Email: </p></div>
-                        <div class="col"><input type="text" class="form-control mr-2 mb-2"   placeholder="Entrez un email"></div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col"><p>Photo: </p></div>
-                        <div class="col"><input type="text" class="form-control mr-2 mb-2"   placeholder="Entrez une url de photo"></div>
-
-                    </div>
-                </ng-container>
-                <ng-template #afficherEmailEtPhoto>
-                    <div class="row">
-                        <div class="col"><p>Email: </p></div>
-                        <div class="col"><p [textContent]="(this.collegue|async).email"></p></div>
-                    </div>
-                </ng-template>
-            </div>
-        </div>
-
-        <div class="row">
-            <ng-container *ngIf="modification==false;else afficherBoutonValider">
-                <div class="col">
-                    <button type="button" class="btn btn-lg btn-sm text-light" (click)="clickCreer()">Créer un nouveau collègue</button>
-                </div>
-
-                <div class="col">
-                    <button type="button" class="btn btn-lg btn-block text-light" (click)="clickModifier()">Modifier</button>
-                </div>
-            </ng-container>
-            <ng-template #afficherBoutonValider>
-                <div class="col"></div>
-                <div class="col">
-                    <button type="button" class="btn btn-lg btn-block text-light" (click)="clickValider()">Valider</button>
-                </div>
-            </ng-template>
-        </div>
-    </div>
-</div>
-
-
+<ng-container *ngIf="this.etatComponent===1">
+<app-afficher-collegue [collegue]="this.collegue" (childEvent)="this.changerEtatComponent($event)"></app-afficher-collegue>
+</ng-container>
+<ng-container *ngIf="this.etatComponent===2">
+    <app-modifier-collegue [collegue]="this.collegue" (childEvent)="this.changerEtatComponent($event)"></app-modifier-collegue>
+</ng-container>
+<ng-container *ngIf="this.etatComponent===3">
+    <app-creer-collegue (childEvent)="this.changerEtatComponent($event)"></app-creer-collegue>
+</ng-container>

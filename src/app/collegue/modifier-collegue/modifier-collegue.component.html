@@ -1,0 +1,57 @@
+<div class="media row globalDiv  mx-3 p-3">
+    <img [src]="(this.collegue|async).photoUrl" alt="photo du collegue" class="align-self-center mr-3 ">
+    <div class="media-body">
+        <div class="row">
+
+            <div class="col">
+                <div class="row">
+                    <div class="col"><p>Matricule: </p></div>
+                    <div class="col"><p [textContent]="(this.collegue|async).matricule"></p></div>
+                </div>
+                <div class="row">
+                    <div class="col"><p>Nom: </p></div>
+                    <div class="col"> <p [textContent]="(this.collegue|async).nom | uppercase"></p></div>
+                </div>
+                <div class="row">
+                    <div class="col"><p>Prenom: </p></div>
+                    <div class="col"><p [textContent]="(this.collegue|async).prenom"></p></div>
+
+                </div>
+                <div class="row">
+                    <div class="col"><p>Date de Naissance: </p></div>
+                    <div class="col"> <p [textContent]="(this.collegue|async).ddn | date:'longDate'"></p></div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col"><p>Email: </p></div>
+                    <div class="col"><input type="text" class="form-control mr-2 mb-2"   placeholder="Entrez un email"></div>
+
+                </div>
+                <div class="row">
+                    <div class="col"><p>Photo: </p></div>
+                    <div class="col"><input type="text" class="form-control mr-2 mb-2"   placeholder="Entrez une url de photo"></div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+
+
+            <div class="col"></div>
+            <div class="col">
+                <button type="button" class="btn btn-lg btn-block text-light" (click)="clickValider()">Valider</button>
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
+

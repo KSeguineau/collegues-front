@@ -11,13 +11,21 @@ export class CollegueComponent implements OnInit {
 
 
   collegue = this._dataService.subjectCollegue;
-  modification: boolean = false;
+  private _etatComponent: number = 1;
 
   constructor(private _dataService:DataService) { }
 
 
+  get etatComponent(): number {
+    return this._etatComponent;
+  }
+
+  changerEtatComponent(value: number) {
+    this._etatComponent = value;
+  }
+
   clickModifier(){
-    this.modification = true;
+    this._etatComponent = 2;
   }
 
   clickCreer(){
@@ -25,7 +33,7 @@ export class CollegueComponent implements OnInit {
   }
 
   clickValider(){
-    this.modification = false
+    this._etatComponent = 1
   }
 
   ngOnInit() {
