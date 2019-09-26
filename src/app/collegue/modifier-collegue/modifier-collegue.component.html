@@ -6,28 +6,28 @@
             <div class="col">
                 <div class="row">
                     <div class="col"><p>Matricule: </p></div>
-                    <div class="col"><p [textContent]="this.collegue.matricule"></p></div>
+                    <div class="col"><p [textContent]="collegue.matricule"></p></div>
                 </div>
                 <div class="row">
                     <div class="col"><p>Nom: </p></div>
-                    <div class="col"><p [textContent]="this.collegue.nom | uppercase"></p></div>
+                    <div class="col"><p [textContent]="collegue.nom | uppercase"></p></div>
                 </div>
                 <div class="row">
                     <div class="col"><p>Prenom: </p></div>
-                    <div class="col"><p [textContent]="this.collegue.prenom"></p></div>
+                    <div class="col"><p [textContent]="collegue.prenom"></p></div>
 
                 </div>
                 <div class="row">
                     <div class="col"><p>Date de Naissance: </p></div>
-                    <div class="col"><p [textContent]="this.collegue.ddn | date:'longDate'"></p></div>
+                    <div class="col"><p [textContent]="collegue.ddn | date:'longDate'"></p></div>
 
                 </div>
 
 
                 <div class="row">
                     <div class="col"><p>Email: </p></div>
-                    <div class="col"><input type="email" [(ngModel)]="collegue.email" class="form-control mr-2 mb-2"
-                                            placeholder="Entrez un email" #etatEmail="ngModel" [value]="collegue.email"
+                    <div class="col"><input type="email" [(ngModel)]="collegueBrouillon.email" class="form-control mr-2 mb-2"
+                                            placeholder="Entrez un email" #etatEmail="ngModel"
                                             required></div>
                 </div>
                 <div class="row" *ngIf="etatEmail.invalid">
@@ -38,9 +38,9 @@
                 </div>
                 <div class="row">
                     <div class="col"><p>Photo: </p></div>
-                    <div class="col"><input type="text" [(ngModel)]="collegue.photoUrl" class="form-control mr-2 mb-2"
+                    <div class="col"><input type="text" [(ngModel)]="collegueBrouillon.photoUrl" class="form-control mr-2 mb-2"
                                             placeholder="Entrez une url de photo" #etatPhoto="ngModel"
-                                            [value]="collegue.photoUrl" [ngModelOptions]="{updateOn: 'blur'}" minLength="7" required></div>
+                                             [ngModelOptions]="{updateOn: 'blur'}" minLength="7" required></div>
                 </div>
                 <div class="row" *ngIf="etatPhoto.invalid">
                     <div class="col"></div>

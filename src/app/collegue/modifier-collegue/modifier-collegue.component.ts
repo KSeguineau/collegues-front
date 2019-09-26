@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output,AfterViewChecked} from '@angular/core';
 import Collegue from "../../models/Collegue";
 import {Observable} from "rxjs";
 import {DataService} from "../../services/data.service";
@@ -11,16 +11,21 @@ import {DataService} from "../../services/data.service";
 export class ModifierCollegueComponent implements OnInit {
 
   @Input() collegue: Collegue;
+  @Input() collegueBrouillon;
   @Output() childEvent = new EventEmitter();
   messageError:string;
 
   constructor(private _dataService: DataService) { }
 
+
+
   ngOnInit() {
   }
 
   clickValider(){
-    this._dataService.modifierCollegue(this.collegue).subscribe(()=>{this.childEvent.next(1);},(err)=>{this.messageError = "impossible de modifier le collegue";console.log(err);});
+    this.collegue.email = this.collegueBrouillon.email;
+    this.collegue.photoUrl = this.collegueBrouillon.photoUrl;
+    this._dataService.modifierCollegue(this.collegue).subscribe(()=>{this.childEvent.next(1);},(err)=>this.messageError = "impossible de modifier le collegue");
 
   }
 }
