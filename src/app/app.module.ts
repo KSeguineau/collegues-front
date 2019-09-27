@@ -13,6 +13,12 @@ import { CreerCollegueComponent } from './collegue/creer-collegue/creer-collegue
 import { FormsModule }   from '@angular/forms';
 import { UrlValidatorDirective } from './validators/url-validator.directive';
 import { EmailValidatorDirective } from './validators/email-validator.directive';
+import { AcceuilComponent } from './acceuil/acceuil.component';
+import { GallerieComponent } from './gallerie/gallerie.component';
+import { AproposComponent } from './apropos/apropos.component';
+import { ROUTES } from './app.routes'
+import {RouterModule} from "@angular/router";
+
 
 @NgModule({
   declarations: [
@@ -24,10 +30,13 @@ import { EmailValidatorDirective } from './validators/email-validator.directive'
     ModifierCollegueComponent,
     CreerCollegueComponent,
     UrlValidatorDirective,
-    EmailValidatorDirective
+    EmailValidatorDirective,
+    AcceuilComponent,
+    GallerieComponent,
+    AproposComponent
   ],
   imports: [
-    BrowserModule,NgbModule,HttpClientModule,FormsModule
+    BrowserModule,NgbModule,HttpClientModule,FormsModule,RouterModule.forRoot(ROUTES)
   ],
   providers: [{provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}],
   bootstrap: [AppComponent]

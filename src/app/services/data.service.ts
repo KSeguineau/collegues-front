@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {HttpHeaders} from "@angular/common/http";
 import {BehaviorSubject, Observable, of} from 'rxjs'
 import {tap,flatMap} from 'rxjs/operators';
+import PhotosInterface from "../models/PhotosInterface";
 
 @Injectable({
     providedIn: 'root'
@@ -85,6 +86,10 @@ export class DataService {
             withCredentials: true
         };
         return this._httpClient.post<Collegue>(environment.backendUrl+"/collegues",collegue,httpOptions).pipe(tap((collegue)=>this._subjectCollegue.next(collegue)));
+    }
+
+    chercherPhotos():Observable<PhotosInterface[]>{
+        return this._httpClient.get<PhotosInterface[]>(environment.backendUrl+"collegues/photos");
     }
 
 }
