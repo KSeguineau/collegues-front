@@ -59,7 +59,9 @@
         <div class="row">
 
 
-            <div class="col"></div>
+            <div class="col">
+                <button type="button" class="btn btn-lg btn-block text-light"  (click)="annuler()">annuler</button>
+            </div>
             <div class="col">
                 <button type="button" class="btn btn-lg btn-block text-light"
                         [disabled]="etatPhoto.invalid || etatEmail.invalid" (click)="clickValider()">Valider

@@ -22,6 +22,10 @@ export class ModifierCollegueComponent implements OnInit {
   ngOnInit() {
   }
 
+  annuler(){
+      this.childEvent.next(1);
+  }
+
   clickValider(){
     this.collegue.email = this.collegueBrouillon.email;
     this.collegue.photoUrl = this.collegueBrouillon.photoUrl;

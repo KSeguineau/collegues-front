@@ -1,12 +1,14 @@
 <div class="media row globalDiv  mx-3 p-3">
-    <img src="https://image.flaticon.com/icons/png/512/127/127586.png" alt="photo du collegue" class="align-self-center mr-3 img-fluid">
+    <img src="https://image.flaticon.com/icons/png/512/127/127586.png" alt="photo du collegue"
+         class="align-self-center mr-3 img-fluid">
     <div class="media-body">
         <div class="row">
 
             <div class="col">
                 <div class="row">
                     <div class="col"><p>Nom: </p></div>
-                    <div class="col"><input type="text" class="form-control mr-2 mb-2" [(ngModel)]="collegue.nom" #etatNom="ngModel"  placeholder="Nom" required></div>
+                    <div class="col"><input type="text" class="form-control mr-2 mb-2" [(ngModel)]="collegue.nom"
+                                            #etatNom="ngModel" placeholder="Nom" required></div>
 
                 </div>
                 <div class="row" *ngIf="etatNom.invalid && etatNom.touched">
@@ -17,7 +19,8 @@
                 </div>
                 <div class="row">
                     <div class="col"><p>Prenom: </p></div>
-                    <div class="col"><input type="text" class="form-control mr-2 mb-2" [(ngModel)]="collegue.prenom" #etatPrenom="ngModel" placeholder="Prenom" required></div>
+                    <div class="col"><input type="text" class="form-control mr-2 mb-2" [(ngModel)]="collegue.prenom"
+                                            #etatPrenom="ngModel" placeholder="Prenom" required></div>
 
                 </div>
                 <div class="row" *ngIf="etatPrenom.invalid && etatPrenom.touched">
@@ -28,7 +31,10 @@
                 </div>
                 <div class="row">
                     <div class="col"><p>Date de naissance: </p></div>
-                    <div class="col"><input type="text" (click)="d.toggle()" ngbDatepicker #d="ngbDatepicker" [minDate]="{year: 1900, month: 1,day:1}" class="form-control mr-2 mb-2" [(ngModel)]="collegue.ddn" #etatDdn="ngModel" placeholder="Date de naissance" readonly required></div>
+                    <div class="col"><input type="text" (click)="d.toggle()" ngbDatepicker #d="ngbDatepicker"
+                                            [minDate]="{year: 1900, month: 1,day:1}" class="form-control mr-2 mb-2"
+                                            [(ngModel)]="collegue.ddn" #etatDdn="ngModel"
+                                            placeholder="Date de naissance" readonly required></div>
 
                 </div>
                 <div class="row" *ngIf="etatDdn.invalid && etatDdn.touched">
@@ -41,25 +47,32 @@
 
                 <div class="row">
                     <div class="col"><p>Email: </p></div>
-                    <div class="col"><input type="text" class="form-control mr-2 mb-2" [(ngModel)]="collegue.email" [ngModelOptions]="{updateOn: 'blur'}" #etatEmail="ngModel" placeholder="Entrez un email" appEmailValidator required></div>
+                    <div class="col"><input type="text" class="form-control mr-2 mb-2" [(ngModel)]="collegue.email"
+                                            [ngModelOptions]="{updateOn: 'blur'}" #etatEmail="ngModel"
+                                            placeholder="Entrez un email" appEmailValidator required></div>
 
                 </div>
                 <div class="row" *ngIf="etatEmail.invalid && etatEmail.touched">
                     <div class="col"></div>
                     <div class="col">
-                        <p *ngIf="etatEmail.errors.emailInvalide else emailDisponible" class="text-danger">Email déja utilisé</p>
-                        <ng-template #emailDisponible><p  class="text-danger">Email obligatoire</p></ng-template>
+                        <p *ngIf="etatEmail.errors.emailInvalide else emailDisponible" class="text-danger">Email déja
+                            utilisé</p>
+                        <ng-template #emailDisponible><p class="text-danger">Email obligatoire</p></ng-template>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col"><p>Photo: </p></div>
-                    <div class="col"><input type="text" appUrlValidator class="form-control mr-2 mb-2" [(ngModel)]="collegue.photoUrl" [ngModelOptions]="{updateOn: 'blur'}" #etatPhoto="ngModel" placeholder="Entrez une url de photo" required minlength="7"></div>
+                    <div class="col"><input type="text" appUrlValidator class="form-control mr-2 mb-2"
+                                            [(ngModel)]="collegue.photoUrl" [ngModelOptions]="{updateOn: 'blur'}"
+                                            #etatPhoto="ngModel" placeholder="Entrez une url de photo" required
+                                            minlength="7"></div>
 
                 </div>
                 <div class="row" *ngIf="etatPhoto.invalid && etatPhoto.touched">
                     <div class="col"></div>
                     <div class="col">
-                        <p *ngIf="etatPhoto.errors.urlInvalide; else photoInvalide" class="text-danger">l’url de la photo ne commence pas par http</p>
+                        <p *ngIf="etatPhoto.errors.urlInvalide; else photoInvalide" class="text-danger">l’url de la
+                            photo ne commence pas par http</p>
                         <ng-template #photoInvalide><p class="text-danger">photo invalide</p></ng-template>
                     </div>
                 </div>
@@ -69,9 +82,15 @@
 
         <div class="row">
 
-            <div class="col"></div>
             <div class="col">
-                <button type="button" class="btn btn-lg btn-block text-light" [disabled]="etatNom.invalid || etatPrenom.invalid || etatDdn.invalid || etatEmail.invalid || etatPhoto.invalid" (click)="clickCreer()">Creer</button>
+                <button type="button" class="btn btn-lg btn-block text-light" (click)="annuler()">annuler</button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-lg btn-block text-light"
+                        [disabled]="etatNom.invalid || etatPrenom.invalid || etatDdn.invalid || etatEmail.invalid || etatPhoto.invalid"
+                        (click)="clickCreer()">Creer
+                </button>
                 <p *ngIf="messageError">{{messageError}}</p>
             </div>
 
