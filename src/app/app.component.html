@@ -13,10 +13,10 @@
 
 
 <div *ngIf="(this.connecte | async)===true" class="row ">
-    <div class="col col-md-5">
+    <div class="col- col-lg-5">
         <app-recherche-collegue-par-nom></app-recherche-collegue-par-nom>
     </div>
-    <div *ngIf="(collegue|async)" class="col col-md-7">
+    <div *ngIf="(collegue|async)" class="col- col-lg-7">
         <app-collegue></app-collegue>
     </div>
 </div>
