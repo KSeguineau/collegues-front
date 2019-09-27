@@ -41,24 +41,26 @@
 
                 <div class="row">
                     <div class="col"><p>Email: </p></div>
-                    <div class="col"><input type="text" class="form-control mr-2 mb-2" [(ngModel)]="collegue.email" #etatEmail="ngModel" placeholder="Entrez un email" required></div>
+                    <div class="col"><input type="text" class="form-control mr-2 mb-2" [(ngModel)]="collegue.email" [ngModelOptions]="{updateOn: 'blur'}" #etatEmail="ngModel" placeholder="Entrez un email" appEmailValidator required></div>
 
                 </div>
                 <div class="row" *ngIf="etatEmail.invalid && etatEmail.touched">
                     <div class="col"></div>
                     <div class="col">
-                        <p class="text-danger">Champ obligatoire</p>
+                        <p *ngIf="etatEmail.errors.emailInvalide else emailDisponible" class="text-danger">Email déja utilisé</p>
+                        <ng-template #emailDisponible><p  class="text-danger">Email obligatoire</p></ng-template>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col"><p>Photo: </p></div>
-                    <div class="col"><input type="text" class="form-control mr-2 mb-2" [(ngModel)]="collegue.photoUrl" #etatPhoto="ngModel" placeholder="Entrez une url de photo" required minlength="7"></div>
+                    <div class="col"><input type="text" appUrlValidator class="form-control mr-2 mb-2" [(ngModel)]="collegue.photoUrl" [ngModelOptions]="{updateOn: 'blur'}" #etatPhoto="ngModel" placeholder="Entrez une url de photo" required minlength="7"></div>
 
                 </div>
                 <div class="row" *ngIf="etatPhoto.invalid && etatPhoto.touched">
                     <div class="col"></div>
                     <div class="col">
-                        <p class="text-danger">Photo non comforme</p>
+                        <p *ngIf="etatPhoto.errors.urlInvalide; else photoInvalide" class="text-danger">l’url de la photo ne commence pas par http</p>
+                        <ng-template #photoInvalide><p class="text-danger">photo invalide</p></ng-template>
                     </div>
                 </div>
 

@@ -11,6 +11,8 @@ import { AfficherCollegueComponent } from './collegue/afficher-collegue/afficher
 import { ModifierCollegueComponent } from './collegue/modifier-collegue/modifier-collegue.component';
 import { CreerCollegueComponent } from './collegue/creer-collegue/creer-collegue.component';
 import { FormsModule }   from '@angular/forms';
+import { UrlValidatorDirective } from './validators/url-validator.directive';
+import { EmailValidatorDirective } from './validators/email-validator.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FormsModule }   from '@angular/forms';
     ConnexionComponent,
     AfficherCollegueComponent,
     ModifierCollegueComponent,
-    CreerCollegueComponent
+    CreerCollegueComponent,
+    UrlValidatorDirective,
+    EmailValidatorDirective
   ],
   imports: [
     BrowserModule,NgbModule,HttpClientModule,FormsModule

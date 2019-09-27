@@ -26,26 +26,30 @@
 
                 <div class="row">
                     <div class="col"><p>Email: </p></div>
-                    <div class="col"><input type="email" [(ngModel)]="collegueBrouillon.email" class="form-control mr-2 mb-2"
-                                            placeholder="Entrez un email" #etatEmail="ngModel"
+                    <div class="col"><input type="email" [(ngModel)]="collegueBrouillon.email" class="form-control mr-2 mb-2" appEmailValidator [emailCollegue]="collegue.email"
+                                            placeholder="Entrez un email" [ngModelOptions]="{updateOn: 'blur'}" #etatEmail="ngModel"
                                             required></div>
                 </div>
                 <div class="row" *ngIf="etatEmail.invalid">
                     <div class="col"></div>
                     <div class="col">
-                        <p class="text-danger">Email obligatoire</p>
+                        <p *ngIf="etatEmail.errors.emailInvalide else emailDisponible" class="text-danger">Email déja utilisé</p>
+                        <ng-template #emailDisponible><p  class="text-danger">Email obligatoire</p></ng-template>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col"><p>Photo: </p></div>
-                    <div class="col"><input type="text" [(ngModel)]="collegueBrouillon.photoUrl" class="form-control mr-2 mb-2"
+                    <div class="col"><input type="text" appUrlValidator [(ngModel)]="collegueBrouillon.photoUrl" class="form-control mr-2 mb-2"
                                             placeholder="Entrez une url de photo" #etatPhoto="ngModel"
-                                             [ngModelOptions]="{updateOn: 'blur'}" minLength="7" required></div>
+                                             [ngModelOptions]="{updateOn: 'blur'}" minlength="7" required></div>
                 </div>
-                <div class="row" *ngIf="etatPhoto.invalid">
+
+
+                <div class="row" *ngIf="etatPhoto.invalid" >
                     <div class="col"></div>
                     <div class="col">
-                        <p class="text-danger">Photo non comforme</p>
+                        <p *ngIf="etatPhoto.errors.urlInvalide; else photoInvalide" class="text-danger">l’url de la photo ne commence pas par http</p>
+                        <ng-template #photoInvalide><p class="text-danger">photo invalide</p></ng-template>
                     </div>
                 </div>
 

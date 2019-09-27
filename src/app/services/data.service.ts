@@ -43,6 +43,10 @@ export class DataService {
       return this._httpClient.get<string[]>(environment.backendUrl+"/collegues?nom="+nom,{withCredentials:true});
     }
 
+    chercherMatriculesparEmail(email:string):Observable<string[]>{
+        return this._httpClient.get<string[]>(environment.backendUrl+"/collegues?email="+email,{withCredentials:true})
+    }
+
     chercherCollegue(matricule:string): Observable<Collegue> {
       const collegueConnu:Collegue = this._listeCollegueConnus.get(matricule);
       if(collegueConnu){
