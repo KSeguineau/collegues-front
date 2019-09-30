@@ -26,18 +26,13 @@
     </div>
     <div class="container">
         <h1 class="display-2 ">Administration Collègues</h1>
-        <div *ngIf="(this.connecte | async)===false" class="row text-center">
-            <div class="col">
-                <app-connexion></app-connexion>
-            </div>
-        </div>
     </div>
 </div>
 
 
 
 
-<div *ngIf="(this.connecte | async)===true">
+<div >
     <router-outlet></router-outlet>
 </div>
 

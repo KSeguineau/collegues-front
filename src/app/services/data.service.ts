@@ -60,11 +60,9 @@ export class DataService {
       }
 
     verifierConnexion(){
-      this._httpClient.get<Collegue>(environment.backendUrl+"/auth/user",{withCredentials:true})
-          .pipe(flatMap((value => this.chercherCollegue(value.matricule) ))).subscribe((collegue)=>{
-            this._subjectConnecte.next(true);
-            this._subjectCollegue.next(collegue);
-      });
+      return this._httpClient.get<Collegue>(environment.backendUrl+"/auth/user",{withCredentials:true})
+          .pipe(flatMap((value => this.chercherCollegue(value.matricule) )),tap((collegue)=>{this._subjectConnecte.next(true);
+              this._subjectCollegue.next(collegue);}));
     }
 
     modifierCollegue(collegue:Collegue):Observable<Collegue>{

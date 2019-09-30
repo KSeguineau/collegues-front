@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from "../services/data.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-connexion',
@@ -9,10 +10,10 @@ import {DataService} from "../services/data.service";
 export class ConnexionComponent implements OnInit {
   messageError: string;
 
-  constructor(private _dataService: DataService) { }
+  constructor(private _dataService: DataService,private router:Router) { }
 
   connexion(login: string,mdp: string){
-    this._dataService.connexion(login,mdp).subscribe(()=>{},(error => this.messageError = "informations de connexion invalides"));
+    this._dataService.connexion(login,mdp).subscribe(()=>{this.router.navigate(['/accueil'])},(error => this.messageError = "informations de connexion invalides"));
     return false;
   }
   ngOnInit() {
