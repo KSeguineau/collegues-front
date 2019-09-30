@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {DataService} from "./services/data.service";
+import {Router} from "@angular/router";
 
 
 
@@ -11,7 +12,15 @@ import {DataService} from "./services/data.service";
 })
 export class AppComponent {
   collegue = this._dataService.subjectCollegue;
-  constructor(private _dataService:DataService){}
+  constructor(private _dataService:DataService, private router:Router){}
+  navbarOpen = false;
 
+  logout(){
+  this._dataService.logout().subscribe(()=>{this.router.navigate(['/login'])});
+  }
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
 
 }

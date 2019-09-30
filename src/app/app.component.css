@@ -5,3 +5,12 @@
 h1{
     color: beige;
 }
+
+button{
+    background-color: beige;
+    color: #494b50;
+}
+
+.navbar-collapse{
+    background-color: #494b50;
+}

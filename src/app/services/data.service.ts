@@ -90,4 +90,13 @@ export class DataService {
         return this._httpClient.get<PhotosInterface[]>(environment.backendUrl+"/collegues/photos",{withCredentials:true});
     }
 
+    logout():Observable<void>{
+        const httpOptions = {
+            headers: new HttpHeaders({
+                "Content-Type": "application/json"
+            }),
+            withCredentials: true
+        };
+        return this._httpClient.post<void>(environment.backendUrl+"/logout",{},httpOptions);
+    }
 }

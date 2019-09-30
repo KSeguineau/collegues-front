@@ -2,10 +2,10 @@
 <form class="form-signin">
     <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
     <label for="inputIdentifiant" class="sr-only" >Identifiant</label>
-    <input type="text" id="inputIdentifiant" class="form-control" placeholder="identifiant" required="" autofocus="" #login>
+    <input type="text" id="inputIdentifiant" class="form-control my-2" placeholder="identifiant" required="" autofocus="" #login>
     <label for="inputPassword" class="sr-only">Mot de passe</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required="" #mdp>
-    <button class="btn btn-lg btn-primary btn-block" (click)="connexion(login.value,mdp.value)">se connecter</button>
-
+    <input type="password" id="inputPassword" class="form-control my-2" placeholder="Mot de passe" required="" #mdp>
+    <button class="btn btn-lg btn-primary btn-block my-2" (click)="connexion(login.value,mdp.value)">se connecter</button>
+    <p *ngIf="messageError" class="my-2 text-center text-danger">{{messageError}}</p>
 </form>
 
