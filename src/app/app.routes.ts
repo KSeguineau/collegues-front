@@ -11,8 +11,8 @@ export const ROUTES: Routes = [
     { path: 'accueil',canActivate: [ConnexionGuardService], component: AcceuilComponent },
     { path: 'gallerie',canActivate: [ConnexionGuardService], component: GallerieComponent },
     { path: 'apropos',canActivate: [ConnexionGuardService], component: AproposComponent },
-    { path: 'details/:matricule',canActivate: [ConnexionGuardService], component: DetailCollegueComponent }
-
+    { path: 'details/:matricule',canActivate: [ConnexionGuardService], component: DetailCollegueComponent },
+    { path: '', pathMatch: 'full', redirectTo: '/accueil' },
 
 
 
