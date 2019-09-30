@@ -1,0 +1,39 @@
+<ng-container *ngIf="collegue|async as collegueRecup">
+    <div class="media row globalDiv  mx-3 p-3">
+        <img [src]="collegueRecup.photoUrl" alt="photo du collegue" class="align-self-center mr-3 img-fluid ">
+        <div class="media-body">
+            <div class="row">
+
+                <div class="col">
+                    <div class="row">
+                        <div class="col"><p>Matricule: </p></div>
+                        <div class="col"><p [textContent]="collegueRecup.matricule"></p></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><p>Nom: </p></div>
+                        <div class="col"><p [textContent]="collegueRecup.nom | uppercase"></p></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><p>Prenom: </p></div>
+                        <div class="col"><p [textContent]="collegueRecup.prenom"></p></div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col"><p>Date de Naissance: </p></div>
+                        <div class="col"><p [textContent]="collegueRecup.ddn | date:'longDate'"></p></div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col"><p>Email: </p></div>
+                        <div class="col"><p [textContent]="collegueRecup.email"></p></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+

@@ -18,6 +18,7 @@ import { GallerieComponent } from './gallerie/gallerie.component';
 import { AproposComponent } from './apropos/apropos.component';
 import { ROUTES } from './app.routes'
 import {RouterModule} from "@angular/router";
+import { DetailCollegueComponent } from './detail-collegue/detail-collegue.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {RouterModule} from "@angular/router";
     EmailValidatorDirective,
     AcceuilComponent,
     GallerieComponent,
-    AproposComponent
+    AproposComponent,
+    DetailCollegueComponent
   ],
   imports: [
     BrowserModule,NgbModule,HttpClientModule,FormsModule,RouterModule.forRoot(ROUTES)

@@ -1,2 +1,5 @@
-<p>gallerie works!</p>
-<div>{{listePhotos|async}}</div>
+<div class="container row mx-auto">
+    <div class="col-12 col-md-5 col-lg-3 photoClass justify-content-center" [style.backgroundImage]="'url('+collegue.photoUrl+')'" *ngFor="let collegue of (listePhotos|async)" (click)="afficherDetails(collegue.matricule)">
+    </div>
+    
+</div>

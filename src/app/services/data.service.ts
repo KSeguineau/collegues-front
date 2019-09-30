@@ -89,7 +89,7 @@ export class DataService {
     }
 
     chercherPhotos():Observable<PhotosInterface[]>{
-        return this._httpClient.get<PhotosInterface[]>(environment.backendUrl+"collegues/photos");
+        return this._httpClient.get<PhotosInterface[]>(environment.backendUrl+"/collegues/photos",{withCredentials:true});
     }
 
 }
